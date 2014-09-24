@@ -1,0 +1,12 @@
+# Used in specs
+[accounts.protoss.fenix]
+access_key = "fenix"
+secret = "zealot!"
+
+[accounts.protoss.tassadar]
+access_key = "tassadar"
+secret = "lightning!"
+
+[accounts.terran.raynor]
+access_key = "raynor"
+secret = "abcd1234"
