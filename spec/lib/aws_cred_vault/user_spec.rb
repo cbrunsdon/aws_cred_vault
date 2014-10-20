@@ -16,8 +16,8 @@ describe AwsCredVault::User do
 
       expect(subject).to eq(
         {
-          aws_access_key_id: 'id',
-          aws_secret_access_key: 'key'
+          access_key_id: 'id',
+          secret_access_key: 'key'
         }
       )
     end

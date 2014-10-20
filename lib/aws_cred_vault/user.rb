@@ -11,8 +11,8 @@ module AwsCredVault
 
     def credentials
       {
-        aws_access_key_id: access_key,
-        aws_secret_access_key: secret
+        access_key_id: access_key,
+        secret_access_key: secret
       }
     end
   end
