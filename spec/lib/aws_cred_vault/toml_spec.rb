@@ -25,6 +25,14 @@ describe AwsCredVault::Toml do
         expect(subject).to eq([])
       end
     end
+
+    it 'creates the right user name' do
+      expect(subject.first.users.first.access_key).to eq 'fenix'
+    end
+
+    it 'creates the right secret' do
+      expect(subject.first.users.first.secret).to eq 'zealot!'
+    end
   end
 
   describe '#add_account' do

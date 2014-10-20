@@ -12,7 +12,7 @@ module AwsCredVault
       account_hash.map do |name, user_list|
         account = Account.new name
         user_list.each do |name, credentials|
-          account.add_user User.new name, credentials[:access_key], credentials[:secret]
+          account.add_user User.new name, credentials["access_key"], credentials["secret"]
         end
         account
       end
