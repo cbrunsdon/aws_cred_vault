@@ -22,7 +22,7 @@ describe AwsCredVault::Toml do
       let(:file) { '/notthing/here' }
 
       it 'has no accounts' do
-        expect(subject).to eq({})
+        expect(subject).to eq([])
       end
     end
   end

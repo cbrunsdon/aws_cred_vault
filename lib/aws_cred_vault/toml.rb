@@ -1,4 +1,5 @@
 require 'toml'
+require_relative 'account'
 
 module AwsCredVault
   class Toml
@@ -8,11 +9,17 @@ module AwsCredVault
     end
 
     def accounts
-      toml["accounts"] || {}
+      account_hash.map do |name, user_list|
+        account = Account.new name
+        user_list.each do |name, credentials|
+          account.add_user User.new name, credentials[:access_key], credentials[:secret]
+        end
+        account
+      end
     end
 
     def add_account site, name, access_key, secret
-      new_accounts = accounts || {}
+      new_accounts = account_hash || {}
       new_accounts[site] = {
         name => {
           'access_key' => access_key,
@@ -26,6 +33,10 @@ module AwsCredVault
     def toml
       return {} unless File.exists? file
       ::TOML.load_file(file)
+    end
+
+    def account_hash
+      toml["accounts"] || {}
     end
 
     def save accounts
