@@ -59,4 +59,16 @@ describe AwsCredVault::Toml do
     end
   end
 
+  describe '#account' do
+    let(:file) {  }
+    let(:vault) { AwsCredVault::Toml.new('spec/files/accounts.toml') }
+
+    it 'returns nil when no account exists' do
+      expect(vault.account('nope')).to be_nil
+    end
+
+    it 'returns an account when valid' do
+      expect(vault.account('protoss')).to be_a AwsCredVault::Account
+    end
+  end
 end

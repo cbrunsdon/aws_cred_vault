@@ -8,6 +8,12 @@ module AwsCredVault
       @file = file
     end
 
+    # Returns the account with the matching name, or nil if none exists
+    def account name
+      accounts.detect { |x| x.name == name }
+    end
+
+    # Returns the list of all accounts in the vault
     def accounts
       account_hash.map do |name, user_list|
         account = Account.new name
