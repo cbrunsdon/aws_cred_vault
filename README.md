@@ -20,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create `~/.aws_cred_vault` in the following form:
+
+```
+[accounts.$account_name.$ssh_username]
+access_key = "$AWS_ACCESS_KEY"
+secret = "$AWS_SECRET_KEY"
+
+```
+
+* `$account_name` will be used to identify which credentials you want to use
+* `$ssh_username` will be used for ssh access
 
 ## Contributing
 
