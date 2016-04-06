@@ -33,6 +33,10 @@ describe AwsCredVault::Toml do
     it 'creates the right secret' do
       expect(subject.first.users.first.secret).to eq 'zealot!'
     end
+
+    it 'has the right bastions' do
+      expect(subject.first.bastions.first.name).to eq "staging"
+    end
   end
 
   describe '#add_account' do

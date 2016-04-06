@@ -19,4 +19,9 @@ describe AwsCredVault::Account do
       expect { subject }.to change {account.users.length}.by(1)
     end
   end
+
+  describe '#add_bastion' do
+    let(:account) { AwsCredVault::Account.new 'test' }
+    let(:user) { AwsCredVault::User.new 'test_user', 'id', 'key' }
+  end
 end

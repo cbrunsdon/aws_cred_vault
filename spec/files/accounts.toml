@@ -3,6 +3,10 @@
 access_key = "fenix"
 secret = "zealot!"
 
+[accounts.protoss.fenix.bastion]
+staging = "staging.bastion.example.com"
+production = "prod.bastion.example.com"
+
 [accounts.protoss.tassadar]
 access_key = "tassadar"
 secret = "lightning!"

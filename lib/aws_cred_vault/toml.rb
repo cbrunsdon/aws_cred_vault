@@ -19,6 +19,10 @@ module AwsCredVault
         account = Account.new name
         user_list.each do |name, credentials|
           account.add_user User.new name, credentials["access_key"], credentials["secret"]
+
+          (credentials["bastion"] || []).each do |env, host|
+            account.add_bastion Bastion.new env, host
+          end
         end
         account
       end
